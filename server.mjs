@@ -23,10 +23,10 @@ http.createServer(async (req, res) => {
     }
     // The phone preview shares only game assets, not project files or tests.
     const asset = relative.split(path.sep).join('/');
-    if (lan && !(['index.html', 'classic.html', 'attic.html', 'trail.html', 'picnic.css', 'lantern.css', 'style.css', 'trail.css'].includes(asset)
-      || /^assets\/lantern-picnic\/(icons|ui|shop|2d|trail)\/[\w-]+\.(png|webp|json)$/.test(asset)
+    if (lan && !(['index.html', 'classic.html', 'attic.html', 'picnic.css', 'lantern.css', 'style.css'].includes(asset)
+      || /^assets\/lantern-picnic\/(icons|ui|shop|2d)\/[\w-]+\.(png|webp|json)$/.test(asset)
       || /^assets\/lantern-picnic\/[\w-]+\.(glb|json|webp)$/.test(asset)
-      || /^src\/(engine\/|trail\/)?[\w-]+\.js$/.test(asset)
+      || /^src\/(engine\/)?[\w-]+\.js$/.test(asset)
       || /^node_modules\/three\/examples\/jsm\/libs\/draco\/gltf\/[\w.-]+\.(js|wasm)$/.test(asset)
       || /^node_modules\/three\/(build|examples\/jsm|src)\/.*\.js$/.test(asset))) {
       res.writeHead(403).end('Forbidden'); return;

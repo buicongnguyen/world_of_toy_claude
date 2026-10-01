@@ -153,8 +153,6 @@ export const VI = {
   "LITTLE KEEPSAKES PRESENTS": "LITTLE KEEPSAKES GIỚI THIỆU",
   "Five toy friends. One evening. A floating clearing to fill with light.": "Năm người bạn đồ chơi. Một buổi tối. Cùng thắp sáng bãi cỏ trên mây.",
   "Begin the picnic": "Bắt đầu dã ngoại",
-  "The Lantern Trail": "Con Đường Đèn Lồng",
-  "New · a little adventure": "Mới · chuyến phiêu lưu nhỏ",
   "Journey": "Hành trình",
   "Settings": "Cài đặt",
   "How to play": "Cách chơi",

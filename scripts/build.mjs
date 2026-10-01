@@ -22,28 +22,28 @@ await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 
 const result=await build({
- absWorkingDir:root,entryPoints:['src/lantern-main.js','src/picnic-main.js','src/main.js','src/trail/trail-main.js'],
+ absWorkingDir:root,entryPoints:['src/lantern-main.js','src/picnic-main.js','src/main.js'],
  outdir:path.join(out,'js'),bundle:true,format:'esm',splitting:true,minify:true,
  sourcemap:false,target:'es2022',entryNames:'[name]-[hash]',chunkNames:'shared-[hash]',
  legalComments:'eof',metafile:true
 });
 const entries=new Map(Object.entries(result.metafile.outputs).filter(([,value])=>value.entryPoint)
  .map(([file,value])=>[value.entryPoint,'./'+path.relative(out,path.resolve(root,file)).split(path.sep).join('/')]));
-for(const [file,entry] of [['index.html','src/lantern-main.js'],['classic.html','src/picnic-main.js'],['attic.html','src/main.js'],['trail.html','src/trail/trail-main.js']]){
+for(const [file,entry] of [['index.html','src/lantern-main.js'],['classic.html','src/picnic-main.js'],['attic.html','src/main.js']]){
  const html=(await readFile(path.join(root,file),'utf8'))
   .replace(/<script type="importmap">[\s\S]*?<\/script>/,'')
   .replace(/<meta name="draco-path" content="[^"]*">/,'<meta name="draco-path" content="./draco/">')
   .replace(`./${entry}`,entries.get(entry));
  await writeFile(path.join(out,file),html);
 }
-for(const file of ['lantern.css','picnic.css','style.css','trail.css']){
+for(const file of ['lantern.css','picnic.css','style.css']){
  const css=await transform(await readFile(path.join(root,file),'utf8'),{loader:'css',minify:true});
  await writeFile(path.join(out,file),css.code);
 }
-// Runtime assets only: GLB libraries, UI portraits, key art, the manifest, the baked 2D stage and the trail's map.
+// Runtime assets only: GLB libraries, UI portraits, key art, the manifest and the baked 2D stage.
 await mkdir(path.join(out,'assets/lantern-picnic'),{recursive:true});
 for(const entry of await readdir(path.join(root,'assets/lantern-picnic'),{withFileTypes:true})){
- if(entry.isDirectory()&&['icons','ui','shop','2d','trail'].includes(entry.name)){
+ if(entry.isDirectory()&&['icons','ui','shop','2d'].includes(entry.name)){
   // Blender stamps renders with metadata (including the .blend file's local path); ship pixels only.
   const dir=path.join('assets/lantern-picnic',entry.name),versions={};
   await mkdir(path.join(out,dir));
@@ -58,7 +58,7 @@ for(const entry of await readdir(path.join(root,'assets/lantern-picnic'),{withFi
   }
   // The baked art keeps fixed names and Pages caches it for minutes, so the light stage asks for
   // <file>?v=<content hash> from these versions: a deploy never pairs new manifests with old pictures.
-  if(entry.name==='2d'||entry.name==='trail'){
+  if(entry.name==='2d'){
    const file=path.join(out,dir,'manifest.json'),shared=JSON.parse(await readFile(file,'utf8'));
    await writeFile(file,JSON.stringify({...shared,versions}));
   }

@@ -86,20 +86,5 @@ try{
   assert.ok((await state(page)).score>initial.score);
   await context.close();console.log('PASS: Cinematic 3D on request: lazy three.js chunk, Blender libraries, Draco and a merge');
  }
- {
-  // The Lantern Trail: the compiled page, its hashed map art and the door on the title, with no 3D downloads
-  const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
-  const page=await context.newPage(),requested=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requested.push(r.url()));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
-  await page.goto(new URL('?debug',base).href);await page.waitForFunction(()=>window.__lantern&&getComputedStyle(document.querySelector('#loading')).opacity==='0',null,{timeout:60000});
-  await page.locator('#trail-open').waitFor({state:'visible'});await page.locator('#trail-open').evaluate(el=>el.href+='?debug');await page.locator('#trail-open').tap();await page.waitForFunction(()=>window.__trail?.mode==='title',null,{timeout:60000});
-  assert.equal(new URL(page.url()).pathname,new URL('./trail.html',base).pathname);
-  await page.locator('#begin').tap();await page.waitForFunction(()=>__trail.mode==='talk');
-  for(let i=0;i<20&&await page.evaluate(()=>__trail.mode)==='talk';i++){await page.evaluate(()=>__trail.confirm());await page.waitForTimeout(80);}
-  assert.equal(await page.evaluate(()=>__trail.mode),'explore');
-  assert.ok(requested.some(u=>/trail\/ground-0-0\.webp\?v=/.test(u)),'hashed map tiles');
-  assert.ok(!requested.slice(requested.findIndex(u=>/trail\.html/.test(u))).some(u=>/three|\.glb|draco/.test(u)),'no 3D downloads on the trail');
-  await page.screenshot({path:'artifacts/pages-trail.png'});
-  await context.close();console.log('PASS: The Lantern Trail from the title door on the project subpath: hashed map art, intro, no 3D downloads');
- }
  assert.deepEqual(errors,[]);console.log(`PASS: no missing assets or browser errors at ${base}`);
 }finally{await browser.close();if(server)await new Promise(resolve=>server.close(resolve));}
