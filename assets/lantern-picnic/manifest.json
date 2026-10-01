@@ -1,0 +1,172 @@
+{
+  "generator": "Blender 4.5.9 LTS",
+  "source": "art/blender/build_lantern_picnic.py",
+  "files": {
+    "fruit.glb": 939540,
+    "world.glb": 3323848,
+    "friends.glb": 916632
+  },
+  "fruit": [
+    "fruit_0",
+    "fruit_1",
+    "fruit_2",
+    "fruit_3",
+    "fruit_4",
+    "fruit_5",
+    "fruit_6",
+    "fruit_7",
+    "fruit_8",
+    "fruit_9",
+    "fruit_10",
+    "fruit_11"
+  ],
+  "props": [
+    "basket",
+    "plate",
+    "skewer",
+    "lantern",
+    "teapot",
+    "storybook",
+    "sky_lantern",
+    "campfire",
+    "post",
+    "log_seat",
+    "stump",
+    "bunting_flag",
+    "cloth"
+  ],
+  "world": [
+    "island",
+    "tree_oak",
+    "tree_pine",
+    "tree_birch",
+    "tree_blossom",
+    "bush",
+    "bush_berry",
+    "bush_flower",
+    "rock_0",
+    "rock_1",
+    "rock_2",
+    "mushrooms",
+    "fern",
+    "flower_daisy",
+    "flower_bell",
+    "flower_tulip",
+    "flower_sun",
+    "log",
+    "pond",
+    "pond_water",
+    "stone_step",
+    "tuft"
+  ],
+  "friends": {
+    "pip": [
+      "cheer",
+      "eat",
+      "hop",
+      "idle",
+      "talk",
+      "walk",
+      "wave"
+    ],
+    "momo": [
+      "cheer",
+      "eat",
+      "hop",
+      "idle",
+      "talk",
+      "walk",
+      "wave"
+    ],
+    "nori": [
+      "cheer",
+      "eat",
+      "hop",
+      "idle",
+      "talk",
+      "walk",
+      "wave"
+    ],
+    "juniper": [
+      "cheer",
+      "eat",
+      "hop",
+      "idle",
+      "talk",
+      "walk",
+      "wave"
+    ],
+    "bramble": [
+      "cheer",
+      "eat",
+      "hop",
+      "idle",
+      "talk",
+      "walk",
+      "wave"
+    ]
+  },
+  "clips": {
+    "idle": {
+      "seconds": 2.4,
+      "loop": true
+    },
+    "walk": {
+      "seconds": 0.8,
+      "loop": true
+    },
+    "wave": {
+      "seconds": 1.8,
+      "loop": false
+    },
+    "eat": {
+      "seconds": 1.2,
+      "loop": false
+    },
+    "cheer": {
+      "seconds": 1.5,
+      "loop": false
+    },
+    "hop": {
+      "seconds": 0.64,
+      "loop": false
+    },
+    "talk": {
+      "seconds": 2.0,
+      "loop": true
+    }
+  },
+  "vertices": 165893,
+  "triangles": 313342,
+  "textures": [
+    "bark_a",
+    "bark_n",
+    "canopy_a",
+    "canopy_n",
+    "ceramic_n",
+    "felt_a",
+    "felt_n",
+    "gingham_a",
+    "gingham_n",
+    "grass_a",
+    "grass_n",
+    "knit_a",
+    "knit_n",
+    "leaf_a",
+    "leaf_n",
+    "leafcard_a",
+    "linen_a",
+    "linen_n",
+    "paper_a",
+    "paper_n",
+    "skin_n",
+    "soil_a",
+    "soil_n",
+    "stone_a",
+    "stone_n",
+    "wicker_a",
+    "wicker_n",
+    "wood_a",
+    "wood_n"
+  ]
+}

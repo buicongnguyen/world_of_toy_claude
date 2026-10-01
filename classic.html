@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><meta name="theme-color" content="#f7eee3">
+ <meta name="description" content="Pick up a little fruit. Make something wonderful. A colorful, hands-on toy picnic with Pip.">
+ <title>Pip’s Fruit Picnic · Little Keepsakes</title>
+ <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%23fff1df'/%3E%3Cpath d='m20 36 12-25 12 25' fill='none' stroke='%2366a053' stroke-width='4'/%3E%3Ccircle cx='20' cy='42' r='13' fill='%23ed3157'/%3E%3Ccircle cx='44' cy='42' r='13' fill='%23f4536c'/%3E%3C/svg%3E">
+ <link rel="stylesheet" href="./picnic.css">
+ <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+ <header class="picnic-header">
+  <div class="brand"><span id="brand-fruit"></span><div><span class="brand-eyebrow">LITTLE KEEPSAKES</span><h1>Pip’s fruit picnic<span class="title-dot">.</span></h1></div></div>
+  <div class="invitation"><span class="tiny-star">✧</span> Little things. Lovely possibilities.</div>
+  <div class="header-actions"><div class="joy-counter" aria-label="Little joys earned"><span id="score-coin"></span><div><strong id="score">0</strong><span>little joys</span></div></div><span class="header-divider"></span><button id="undo" class="icon-button" data-icon="reset" aria-label="Undo last move" disabled title="Undo last move (U)"></button><button id="sound" class="icon-button" data-icon="mute" aria-label="Turn sound on" title="Sound"></button><button id="help" class="icon-button" data-icon="help" aria-label="How to play" title="How to play"></button></div>
+ </header>
+ <section id="round-panel" class="round-panel" aria-label="Picnic challenge" hidden>
+  <div class="round-goal"><span id="goal-fruit"></span><div><span class="round-eyebrow">THE WATERMELON PICNIC</span><strong>Make 2 watermelons <span id="goal-count">0 / 2</span></strong><span id="goal-caption">Watermelons are saved on Pip’s plate.</span></div></div>
+  <div class="round-basket"><div class="round-timing"><span id="turn-count">Turn 0</span><strong id="basket-countdown">Basket opens in 3 turns</strong></div><div id="next-delivery" aria-label="Next basket delivery"></div><div id="turn-dots" aria-hidden="true"></div></div>
+  <p class="round-rule">Move or share = 1 turn · Follow the glow to match · 3 fruit arrive every 3 turns</p>
+ </section>
+ <main id="play-space">
+  <div class="surface-heading"><span class="surface-tag"><span class="live-dot"></span> YOUR LITTLE PLAY SPACE</span><p>Pick it up. Pair it up. <em>See what grows.</em></p></div>
+  <div id="canvas-wrap"><canvas id="picnic" tabindex="0" aria-label="Picnic play surface. Combine matching fruit or glowing bubbles. The bubble jar creates new tiny bubbles. Drag any toy onto the plate for Pip. N picks the next toy, arrows move it, Enter places it, B adds fruit, J makes a bubble, U undoes, Escape cancels."></canvas>
+   <div id="world-labels"><button id="basket-label" class="world-label basket-label" aria-label="Pick a new fruit from the basket"><span class="label-title"><span class="label-desktop">The happy basket</span><span class="label-phone">Fruit basket</span> <span data-icon="leaf"></span></span><span class="label-sub">pick a fruit · always more</span></button><div id="plate-label" class="world-label plate-label"><span class="label-title">A little for Pip</span><span class="label-sub">drop any fruit here</span></div><div id="pip-note" class="pip-note" role="status">A picnic? For us?<br><em>Oh, this will be lovely.</em></div><div id="merge-preview" class="merge-preview" hidden></div><div id="effects"></div></div>
+   <button id="bubble-label" class="world-label bubble-label" aria-label="Make a tiny light bubble"><span class="label-title"><span class="label-desktop">Bubble wishes</span><span class="label-phone">Bubble jar</span> <span aria-hidden="true">✧</span></span><span class="label-sub">tap or drag · start small</span></button>
+   <div id="loading"><div id="loading-fruit"></div><p>Setting out a little happiness…</p></div>
+  </div>
+  <div id="round-result" class="round-result" role="region" aria-labelledby="result-title" hidden><div class="result-fruit" id="result-fruit"></div><span class="round-eyebrow">A PICNIC WORTH SHARING</span><h2 id="result-title">Picnic complete!</h2><p>Two watermelons, one very happy Pip.</p><div id="result-stats"></div><button id="play-again" class="primary-button">Play again</button><button id="view-picnic" class="subtle-button">Admire your picnic</button></div>
+  <div class="surface-bottom"><div class="pip-progress"><span data-icon="heart"></span><span id="pip-status">A little picnic for two</span></div><div id="gesture-hint" role="status"><span class="gesture-dot"></span> Drag one fruit onto another of the same kind.</div><a id="mode-link" class="mode-link" href="./classic.html?mode=free">Free play</a><button id="result-toggle" class="mode-link" hidden>Results</button><button id="photo" class="icon-button" data-icon="camera" aria-label="Save a picnic photo" title="Save a picnic photo"></button></div>
+ </main>
+ <footer class="fruit-family"><div class="family-caption"><span class="family-eyebrow">THE FRUIT FAMILY</span><span id="discovery-count">6 of 12 discovered</span></div><div id="evolution" aria-label="Fruit combination sequence"></div><div class="save-label"><span class="live-dot"></span><span id="save-status">Your picnic is saved</span></div></footer>
+ <div id="coin-flights" aria-hidden="true"></div>
+ <div id="toast" role="status" aria-live="polite"></div>
+ <div id="announcer" class="sr-only" aria-live="polite"></div>
+ <dialog id="help-dialog" aria-labelledby="help-title"><button id="close-help" class="icon-button modal-close" data-icon="close" aria-label="Close help"></button><div id="help-content"></div></dialog>
+ <script type="module" src="./src/picnic-main.js"></script>
+</body>
+</html>

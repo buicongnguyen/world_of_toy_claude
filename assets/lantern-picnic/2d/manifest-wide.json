@@ -1,0 +1,1992 @@
+{
+ "version": 1,
+ "layout": "wide",
+ "generator": "tools/bake (the game's LanternWorld, three.js r180)",
+ "image": {
+  "w": 2560,
+  "h": 1600
+ },
+ "frame": {
+  "width": 14,
+  "depth": 9.8
+ },
+ "restY": 0.1,
+ "pitch": 46,
+ "fov": 28,
+ "camera": {
+  "viewProj": [
+   2.506738083,
+   0,
+   0,
+   0,
+   -0.0474951007,
+   2.781892285,
+   -0.7201395111,
+   -0.7193398003,
+   -0.0458654856,
+   -2.889199473,
+   -0.6954306421,
+   -0.6946583705,
+   0.2660198165,
+   -5.570558271,
+   34.19962877,
+   35.16109503
+  ],
+  "position": [
+   0.82,
+   26.2934,
+   23.3888
+  ],
+  "target": [
+   0.82,
+   1.0857,
+   -0.954
+  ],
+  "distance": 35.0428
+ },
+ "world3": "world = ((x - 0.5) * frame.width, y, (y_norm - 0.5) * frame.depth)",
+ "homography": [
+  1166.98,
+  -241.3210728,
+  712.67,
+  0,
+  446.968766,
+  615.76,
+  0,
+  -0.1768556334,
+  1
+ ],
+ "pxPerUnit": 91.44,
+ "boardCorners": [
+  {
+   "world": [
+    -7,
+    0.1,
+    -4.9
+   ],
+   "px": [
+    712.67,
+    615.76
+   ]
+  },
+  {
+   "world": [
+    7,
+    0.1,
+    -4.9
+   ],
+   "px": [
+    1879.65,
+    615.76
+   ]
+  },
+  {
+   "world": [
+    7,
+    0.1,
+    4.9
+   ],
+   "px": [
+    1990.33,
+    1291.06
+   ]
+  },
+  {
+   "world": [
+    -7,
+    0.1,
+    4.9
+   ],
+   "px": [
+    572.62,
+    1291.06
+   ]
+  }
+ ],
+ "anchors": {
+  "seats": [
+   {
+    "world": [
+     8.05,
+     0,
+     0.7
+    ],
+    "px": [
+     2033.54,
+     975.18
+    ]
+   },
+   {
+    "world": [
+     8.35,
+     0,
+     -2.5
+    ],
+    "px": [
+     2019.32,
+     764.17
+    ]
+   },
+   {
+    "world": [
+     -8.15,
+     0,
+     -2.2
+    ],
+    "px": [
+     580.05,
+     782.87
+    ]
+   },
+   {
+    "world": [
+     -8.2,
+     0,
+     1.3
+    ],
+    "px": [
+     519.7,
+     1017.79
+    ]
+   }
+  ],
+  "guestSeat": {
+   "world": [
+    5.74,
+    0,
+    3.822
+   ],
+   "px": [
+    1850.16,
+    1208.86
+   ]
+  },
+  "entry": {
+   "world": [
+    10.4,
+    0,
+    5.8
+   ],
+   "px": [
+    2351.88,
+    1373.76
+   ]
+  },
+  "path": [
+   {
+    "world": [
+     10.4,
+     0,
+     5.8
+    ],
+    "px": [
+     2351.88,
+     1373.76
+    ]
+   },
+   {
+    "world": [
+     8.6,
+     0,
+     5.1
+    ],
+    "px": [
+     2154.03,
+     1313.76
+    ]
+   },
+   {
+    "world": [
+     5.74,
+     0,
+     3.822
+    ],
+    "px": [
+     1850.16,
+     1208.86
+    ]
+   }
+  ],
+  "detour": [
+   {
+    "world": [
+     5.74,
+     0,
+     5.65
+    ],
+    "px": [
+     1869.9,
+     1360.75
+    ]
+   },
+   {
+    "world": [
+     -7.9,
+     0,
+     5.65
+    ],
+    "px": [
+     468.79,
+     1360.75
+    ]
+   }
+  ],
+  "lanterns": [
+   {
+    "hook": {
+     "world": [
+      -4.8641,
+      2.5107,
+      -5.65
+     ],
+     "px": [
+      875.29,
+      419.35
+     ]
+    },
+    "origin": {
+     "world": [
+      -4.8641,
+      1.6437,
+      -5.65
+     ],
+     "px": [
+      883.34,
+      476.52
+     ]
+    },
+    "scale": 0.85,
+    "heightPx": 65.1
+   },
+   {
+    "hook": {
+     "world": [
+      -2.4326,
+      2.1443,
+      -5.65
+     ],
+     "px": [
+      1086.53,
+      443.75
+     ]
+    },
+    "origin": {
+     "world": [
+      -2.4326,
+      1.2773,
+      -5.65
+     ],
+     "px": [
+      1091.07,
+      500.12
+     ]
+    },
+    "scale": 0.85,
+    "heightPx": 64.3
+   },
+   {
+    "hook": {
+     "world": [
+      0,
+      2.0055,
+      -5.65
+     ],
+     "px": [
+      1294.62,
+      452.9
+     ]
+    },
+    "origin": {
+     "world": [
+      0,
+      1.1385,
+      -5.65
+     ],
+     "px": [
+      1295.76,
+      508.98
+     ]
+    },
+    "scale": 0.85,
+    "heightPx": 63.9
+   },
+   {
+    "hook": {
+     "world": [
+      2.4326,
+      2.1443,
+      -5.65
+     ],
+     "px": [
+      1502.33,
+      443.75
+     ]
+    },
+    "origin": {
+     "world": [
+      2.4326,
+      1.2773,
+      -5.65
+     ],
+     "px": [
+      1500.08,
+      500.12
+     ]
+    },
+    "scale": 0.85,
+    "heightPx": 64.3
+   },
+   {
+    "hook": {
+     "world": [
+      4.8641,
+      2.5107,
+      -5.65
+     ],
+     "px": [
+      1712.58,
+      419.35
+     ]
+    },
+    "origin": {
+     "world": [
+      4.8641,
+      1.6437,
+      -5.65
+     ],
+     "px": [
+      1706.85,
+      476.52
+     ]
+    },
+    "scale": 0.85,
+    "heightPx": 65.1
+   }
+  ],
+  "campfire": {
+   "world": [
+    -9.1,
+    -0.0042,
+    -1.2
+   ],
+   "px": [
+    480.3,
+    847
+   ]
+  },
+  "pond": {
+   "world": [
+    -8.75,
+    0.1,
+    2.6
+   ],
+   "px": [
+    441.93,
+    1107.77
+   ]
+  },
+  "tea": {
+   "world": [
+    -5.4,
+    0.0458,
+    -5.9
+   ],
+   "px": [
+    855.74,
+    563.36
+   ]
+  },
+  "book": {
+   "world": [
+    8.3,
+    0.0388,
+    1.9
+   ],
+   "px": [
+    2074.31,
+    1059.12
+   ]
+  },
+  "basket": {
+   "world": [
+    -5.04,
+    0.02,
+    3.626
+   ],
+   "px": [
+    788.24,
+    1192.09
+   ],
+   "scale": 1.05
+  },
+  "plate": {
+   "world": [
+    3.22,
+    0.06,
+    3.626
+   ],
+   "px": [
+    1600.74,
+    1189.7
+   ],
+   "scale": 0.88
+  },
+  "skewer": {
+   "world": [
+    -0.98,
+    0.05,
+    3.528
+   ],
+   "px": [
+    1187.75,
+    1182.55
+   ],
+   "scale": 0.96
+  },
+  "skewerSlots": [
+   {
+    "world": [
+     -1.652,
+     0.2804,
+     3.528
+    ],
+    "px": [
+     1120.53,
+     1168.73
+    ]
+   },
+   {
+    "world": [
+     -0.98,
+     0.2804,
+     3.528
+    ],
+    "px": [
+     1186.85,
+     1168.73
+    ]
+   },
+   {
+    "world": [
+     -0.308,
+     0.2804,
+     3.528
+    ],
+    "px": [
+     1253.18,
+     1168.73
+    ]
+   }
+  ],
+  "sky": {
+   "x": 0,
+   "y": 0,
+   "w": 2560,
+   "h": 399
+  }
+ },
+ "scales": {
+  "friend": 0.98,
+  "lantern": 0.85
+ },
+ "keepsakes": {
+  "tea": "from sunset (after invitation II)",
+  "bunting": "from dusk (after III)",
+  "book": "from night (after IV)",
+  "fire": "lit from dusk (invitation IV on)",
+  "lanternLights": "bg carries the light of the lanterns lit before that invitation; the lanterns themselves are sprites"
+ },
+ "times": [
+  "afternoon",
+  "golden",
+  "sunset",
+  "dusk",
+  "night"
+ ],
+ "pond": {
+  "centre": {
+   "world": [
+    -8.75,
+    0.067,
+    2.6
+   ],
+   "px": [
+    442.58,
+    1109.75
+   ]
+  },
+  "rx": 1.4025,
+  "rz": 0.9537,
+  "waterY": 0.067,
+  "mask": {
+   "file": "pond-wide.webp",
+   "rect": {
+    "x": 312,
+    "y": 1036,
+    "w": 265,
+    "h": 148
+   }
+  }
+ },
+ "meadow": {
+  "flowers": [
+   {
+    "kind": "bush_flower",
+    "world": [
+     2.4313,
+     -0.0243,
+     7.0525
+    ],
+    "px": [
+     1535.26,
+     1487.31
+    ]
+   },
+   {
+    "kind": "bush_flower",
+    "world": [
+     0.588,
+     0.0141,
+     7.7368
+    ],
+    "px": [
+     1339.52,
+     1549.17
+    ]
+   },
+   {
+    "kind": "bush_flower",
+    "world": [
+     -3.9204,
+     -0.006,
+     5.461
+    ],
+    "px": [
+     879.68,
+     1344.82
+    ]
+   },
+   {
+    "kind": "bush_flower",
+    "world": [
+     -6.3404,
+     -0.0034,
+     5.6814
+    ],
+    "px": [
+     628.54,
+     1363.66
+    ]
+   },
+   {
+    "kind": "bush_flower",
+    "world": [
+     -2.4461,
+     0.0662,
+     6.2722
+    ],
+    "px": [
+     1023.79,
+     1411.46
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     2.6278,
+     -0.036,
+     5.8481
+    ],
+    "px": [
+     1550.88,
+     1380.05
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     5.246,
+     -0.0349,
+     5.6828
+    ],
+    "px": [
+     1819.12,
+     1365.62
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     1.5353,
+     -0.0144,
+     -5.7231
+    ],
+    "px": [
+     1423.14,
+     576.74
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     -5.5266,
+     0.0387,
+     6.5822
+    ],
+    "px": [
+     698.18,
+     1440.83
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     7.8369,
+     -0.0392,
+     3.8786
+    ],
+    "px": [
+     2057.38,
+     1215.71
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     8.8437,
+     0.0345,
+     -4.1668
+    ],
+    "px": [
+     2041.46,
+     661.92
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     4.8083,
+     0.0821,
+     -6.5779
+    ],
+    "px": [
+     1687.09,
+     524.48
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     -6.606,
+     -0.0387,
+     -5.1522
+    ],
+    "px": [
+     749.9,
+     610
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     6.1344,
+     -0.0226,
+     5.7464
+    ],
+    "px": [
+     1911.3,
+     1370.41
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     -8.4279,
+     -0.0196,
+     0.1683
+    ],
+    "px": [
+     518.12,
+     939.45
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     7.6398,
+     -0.026,
+     -3.1157
+    ],
+    "px": [
+     1950.47,
+     728.04
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     1.2447,
+     0.0168,
+     6.476
+    ],
+    "px": [
+     1408.98,
+     1432.54
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     -8.3551,
+     0.0175,
+     4.4929
+    ],
+    "px": [
+     445.32,
+     1262.18
+    ]
+   },
+   {
+    "kind": "flower_daisy",
+    "world": [
+     7.0668,
+     -0.0301,
+     -5.3214
+    ],
+    "px": [
+     1880.04,
+     599.99
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     -8.7137,
+     -0.0215,
+     0.222
+    ],
+    "px": [
+     491.07,
+     943.26
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     -4.451,
+     0.1289,
+     -6.7096
+    ],
+    "px": [
+     938.82,
+     514.6
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     6.5766,
+     -0.0377,
+     5.299
+    ],
+    "px": [
+     1950.76,
+     1332.84
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     -9.1529,
+     -0.039,
+     -2.4489
+    ],
+    "px": [
+     497.09,
+     769.72
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     4.5198,
+     -0.0552,
+     6.0826
+    ],
+    "px": [
+     1747.76,
+     1401.72
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     10.2476,
+     0.0524,
+     1.3081
+    ],
+    "px": [
+     2248.62,
+     1015.2
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     2.7225,
+     -0.0363,
+     6.2363
+    ],
+    "px": [
+     1562.35,
+     1414.21
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     3.2906,
+     -0.0403,
+     5.2514
+    ],
+    "px": [
+     1615.83,
+     1328.94
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     7.3141,
+     -0.0393,
+     4.1104
+    ],
+    "px": [
+     2008.94,
+     1234.36
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     7.266,
+     -0.038,
+     -3.3364
+    ],
+    "px": [
+     1915.97,
+     715.47
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     4.4505,
+     -0.0255,
+     -5.4526
+    ],
+    "px": [
+     1663.46,
+     592.4
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     -1.6098,
+     -0.0004,
+     5.503
+    ],
+    "px": [
+     1115.73,
+     1348.1
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     -1.8809,
+     -0.0086,
+     5.44
+    ],
+    "px": [
+     1088.41,
+     1343.18
+    ]
+   },
+   {
+    "kind": "flower_bell",
+    "world": [
+     1.6548,
+     -0.0284,
+     -5.3285
+    ],
+    "px": [
+     1433.4,
+     599.49
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     3.264,
+     -0.0548,
+     6.7511
+    ],
+    "px": [
+     1621.53,
+     1461.49
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     1.7876,
+     -0.0074,
+     7.7676
+    ],
+    "px": [
+     1468.8,
+     1553.32
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     5.9441,
+     0.0244,
+     -6.5461
+    ],
+    "px": [
+     1778.75,
+     529.7
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     0.8307,
+     0.0817,
+     -7.2675
+    ],
+    "px": [
+     1365.37,
+     488.1
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     0.0008,
+     0.0407,
+     6.1423
+    ],
+    "px": [
+     1279.35,
+     1401.42
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     -0.5864,
+     0.0752,
+     6.2601
+    ],
+    "px": [
+     1217.8,
+     1409.87
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     0.924,
+     -0.0159,
+     5.5959
+    ],
+    "px": [
+     1375.18,
+     1357
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     -1.0321,
+     -0.0116,
+     -5.2996
+    ],
+    "px": [
+     1211.55,
+     600.08
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     7.44,
+     -0.0229,
+     -0.1401
+    ],
+    "px": [
+     1966.67,
+     918.6
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     5.6208,
+     0.0442,
+     -6.5395
+    ],
+    "px": [
+     1752.79,
+     528.85
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     0.8788,
+     0.023,
+     6.2764
+    ],
+    "px": [
+     1370.64,
+     1414.35
+    ]
+   },
+   {
+    "kind": "flower_tulip",
+    "world": [
+     3.1813,
+     -0.0368,
+     7.3059
+    ],
+    "px": [
+     1616.12,
+     1511.5
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     1.7269,
+     0.0031,
+     7.2784
+    ],
+    "px": [
+     1461.18,
+     1506.66
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     7.2973,
+     -0.0353,
+     5.5358
+    ],
+    "px": [
+     2027.64,
+     1352.96
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     -9.0688,
+     -0.032,
+     -2.6896
+    ],
+    "px": [
+     508.18,
+     754.42
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     -9.2462,
+     -0.0262,
+     -2.9666
+    ],
+    "px": [
+     497.22,
+     737.11
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     8.6473,
+     0.1014,
+     -0.5731
+    ],
+    "px": [
+     2072.25,
+     881.89
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     -7.4902,
+     -0.0321,
+     -5.5615
+    ],
+    "px": [
+     681.65,
+     586.75
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     -10.0736,
+     -0.0283,
+     -0.6411
+    ],
+    "px": [
+     383.41,
+     885.26
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     6.609,
+     0.0083,
+     -6.095
+    ],
+    "px": [
+     1836.09,
+     555.01
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     5.1403,
+     -0.0379,
+     5.4775
+    ],
+    "px": [
+     1806.21,
+     1348.1
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     4.2498,
+     -0.064,
+     6.3975
+    ],
+    "px": [
+     1722.25,
+     1430.16
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     9.8031,
+     0.085,
+     1.25
+    ],
+    "px": [
+     2206.52,
+     1009.06
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     -7.2013,
+     -0.0321,
+     -5.4384
+    ],
+    "px": [
+     703.93,
+     593.59
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     1.7904,
+     -0.0066,
+     6.3772
+    ],
+    "px": [
+     1465.82,
+     1425.04
+    ]
+   },
+   {
+    "kind": "flower_sun",
+    "world": [
+     4.5599,
+     0.0787,
+     -6.9058
+    ],
+    "px": [
+     1665.25,
+     507.26
+    ]
+   }
+  ]
+ },
+ "files": {
+  "bg": {
+   "afternoon": "bg-wide-afternoon.webp",
+   "golden": "bg-wide-golden.webp",
+   "sunset": "bg-wide-sunset.webp",
+   "dusk": "bg-wide-dusk.webp",
+   "night": "bg-wide-night.webp"
+  },
+  "preview": {
+   "afternoon": "bg-wide-afternoon-preview.webp",
+   "golden": "bg-wide-golden-preview.webp",
+   "sunset": "bg-wide-sunset-preview.webp",
+   "dusk": "bg-wide-dusk-preview.webp",
+   "night": "bg-wide-night-preview.webp"
+  },
+  "cloth": {
+   "blanket-cornflower": "cloth-wide-cornflower.webp",
+   "blanket-strawberry": "cloth-wide-strawberry.webp",
+   "blanket-meadow": "cloth-wide-meadow.webp",
+   "blanket-honey": "cloth-wide-honey.webp"
+  },
+  "clothGain": {
+   "afternoon": 1.131,
+   "golden": 1.252,
+   "sunset": 1.284,
+   "dusk": 1.285,
+   "night": 1.291
+  },
+  "fruit": "fruit-wide.webp",
+  "friends": {
+   "pip": "friend-wide-pip.webp",
+   "momo": "friend-wide-momo.webp",
+   "nori": "friend-wide-nori.webp",
+   "juniper": "friend-wide-juniper.webp",
+   "bramble": "friend-wide-bramble.webp"
+  },
+  "lanterns": {
+   "cream-lit": "lantern-cream-lit.webp",
+   "cream-unlit": "lantern-cream-unlit.webp",
+   "peach-lit": "lantern-peach-lit.webp",
+   "peach-unlit": "lantern-peach-unlit.webp",
+   "mint-lit": "lantern-mint-lit.webp",
+   "mint-unlit": "lantern-mint-unlit.webp",
+   "starlight-lit": "lantern-starlight-lit.webp",
+   "starlight-unlit": "lantern-starlight-unlit.webp"
+  },
+  "skyLantern": "sky-lantern.webp",
+  "pond": "pond-wide.webp"
+ },
+ "sprites": {
+  "fruit": {
+   "file": "fruit-wide.webp",
+   "cell": 288,
+   "columns": 4,
+   "cells": [
+    {
+     "level": 0,
+     "name": "Cherries",
+     "cell": [
+      0,
+      0
+     ],
+     "pivot": [
+      144,
+      217.7
+     ],
+     "unitsPerCell": 1.16,
+     "radius": 0.4
+    },
+    {
+     "level": 1,
+     "name": "Strawberry",
+     "cell": [
+      288,
+      0
+     ],
+     "pivot": [
+      142.2,
+      211.5
+     ],
+     "unitsPerCell": 1.218,
+     "radius": 0.42
+    },
+    {
+     "level": 2,
+     "name": "Grapes",
+     "cell": [
+      576,
+      0
+     ],
+     "pivot": [
+      142,
+      227.3
+     ],
+     "unitsPerCell": 1.247,
+     "radius": 0.43
+    },
+    {
+     "level": 3,
+     "name": "Orange",
+     "cell": [
+      864,
+      0
+     ],
+     "pivot": [
+      144,
+      219.2
+     ],
+     "unitsPerCell": 1.334,
+     "radius": 0.46
+    },
+    {
+     "level": 4,
+     "name": "Lemon",
+     "cell": [
+      0,
+      288
+     ],
+     "pivot": [
+      143,
+      200
+     ],
+     "unitsPerCell": 1.363,
+     "radius": 0.47
+    },
+    {
+     "level": 5,
+     "name": "Pear",
+     "cell": [
+      288,
+      288
+     ],
+     "pivot": [
+      142.3,
+      236.2
+     ],
+     "unitsPerCell": 1.421,
+     "radius": 0.49
+    },
+    {
+     "level": 6,
+     "name": "Peach",
+     "cell": [
+      576,
+      288
+     ],
+     "pivot": [
+      144,
+      218.9
+     ],
+     "unitsPerCell": 1.508,
+     "radius": 0.52
+    },
+    {
+     "level": 7,
+     "name": "Pineapple",
+     "cell": [
+      864,
+      288
+     ],
+     "pivot": [
+      144,
+      247.5
+     ],
+     "unitsPerCell": 1.566,
+     "radius": 0.54
+    },
+    {
+     "level": 8,
+     "name": "Watermelon",
+     "cell": [
+      0,
+      576
+     ],
+     "pivot": [
+      144,
+      220.6
+     ],
+     "unitsPerCell": 1.972,
+     "radius": 0.68
+    },
+    {
+     "level": 9,
+     "name": "Ruby apple",
+     "cell": [
+      288,
+      576
+     ],
+     "pivot": [
+      142.6,
+      219
+     ],
+     "unitsPerCell": 1.305,
+     "radius": 0.45
+    },
+    {
+     "level": 10,
+     "name": "Twilight plum",
+     "cell": [
+      576,
+      576
+     ],
+     "pivot": [
+      144,
+      227.1
+     ],
+     "unitsPerCell": 1.45,
+     "radius": 0.5
+    },
+    {
+     "level": 11,
+     "name": "Dragon fruit",
+     "cell": [
+      864,
+      576
+     ],
+     "pivot": [
+      146.7,
+      221.7
+     ],
+     "unitsPerCell": 1.711,
+     "radius": 0.59
+    }
+   ]
+  },
+  "friends": {
+   "pip": {
+    "file": "friend-wide-pip.webp",
+    "cell": 320,
+    "columns": 4,
+    "poses": {
+     "idle0": [
+      0,
+      0
+     ],
+     "idle1": [
+      320,
+      0
+     ],
+     "talk0": [
+      640,
+      0
+     ],
+     "wave0": [
+      960,
+      0
+     ],
+     "wave1": [
+      0,
+      320
+     ],
+     "wave2": [
+      320,
+      320
+     ],
+     "cheer0": [
+      640,
+      320
+     ],
+     "cheer1": [
+      960,
+      320
+     ],
+     "eat0": [
+      0,
+      640
+     ],
+     "eat1": [
+      320,
+      640
+     ],
+     "hop0": [
+      640,
+      640
+     ],
+     "hop1": [
+      960,
+      640
+     ],
+     "walk0": [
+      0,
+      960
+     ],
+     "walk1": [
+      320,
+      960
+     ],
+     "walk2": [
+      640,
+      960
+     ],
+     "walk3": [
+      960,
+      960
+     ]
+    },
+    "pivot": [
+     146,
+     224
+    ],
+    "unitsPerCell": 2.2527,
+    "facing": "right",
+    "gameScale": 0.98
+   },
+   "momo": {
+    "file": "friend-wide-momo.webp",
+    "cell": 384,
+    "columns": 4,
+    "poses": {
+     "idle0": [
+      0,
+      0
+     ],
+     "idle1": [
+      384,
+      0
+     ],
+     "talk0": [
+      768,
+      0
+     ],
+     "wave0": [
+      1152,
+      0
+     ],
+     "wave1": [
+      0,
+      384
+     ],
+     "wave2": [
+      384,
+      384
+     ],
+     "cheer0": [
+      768,
+      384
+     ],
+     "cheer1": [
+      1152,
+      384
+     ],
+     "eat0": [
+      0,
+      768
+     ],
+     "eat1": [
+      384,
+      768
+     ],
+     "hop0": [
+      768,
+      768
+     ],
+     "hop1": [
+      1152,
+      768
+     ],
+     "walk0": [
+      0,
+      1152
+     ],
+     "walk1": [
+      384,
+      1152
+     ],
+     "walk2": [
+      768,
+      1152
+     ],
+     "walk3": [
+      1152,
+      1152
+     ]
+    },
+    "pivot": [
+     178.2,
+     284
+    ],
+    "unitsPerCell": 2.7254,
+    "facing": "right",
+    "gameScale": 0.98
+   },
+   "nori": {
+    "file": "friend-wide-nori.webp",
+    "cell": 384,
+    "columns": 4,
+    "poses": {
+     "idle0": [
+      0,
+      0
+     ],
+     "idle1": [
+      384,
+      0
+     ],
+     "talk0": [
+      768,
+      0
+     ],
+     "wave0": [
+      1152,
+      0
+     ],
+     "wave1": [
+      0,
+      384
+     ],
+     "wave2": [
+      384,
+      384
+     ],
+     "cheer0": [
+      768,
+      384
+     ],
+     "cheer1": [
+      1152,
+      384
+     ],
+     "eat0": [
+      0,
+      768
+     ],
+     "eat1": [
+      384,
+      768
+     ],
+     "hop0": [
+      768,
+      768
+     ],
+     "hop1": [
+      1152,
+      768
+     ],
+     "walk0": [
+      0,
+      1152
+     ],
+     "walk1": [
+      384,
+      1152
+     ],
+     "walk2": [
+      768,
+      1152
+     ],
+     "walk3": [
+      1152,
+      1152
+     ]
+    },
+    "pivot": [
+     179.7,
+     285.8
+    ],
+    "unitsPerCell": 2.7051,
+    "facing": "right",
+    "gameScale": 0.98
+   },
+   "juniper": {
+    "file": "friend-wide-juniper.webp",
+    "cell": 352,
+    "columns": 4,
+    "poses": {
+     "idle0": [
+      0,
+      0
+     ],
+     "idle1": [
+      352,
+      0
+     ],
+     "talk0": [
+      704,
+      0
+     ],
+     "wave0": [
+      1056,
+      0
+     ],
+     "wave1": [
+      0,
+      352
+     ],
+     "wave2": [
+      352,
+      352
+     ],
+     "cheer0": [
+      704,
+      352
+     ],
+     "cheer1": [
+      1056,
+      352
+     ],
+     "eat0": [
+      0,
+      704
+     ],
+     "eat1": [
+      352,
+      704
+     ],
+     "hop0": [
+      704,
+      704
+     ],
+     "hop1": [
+      1056,
+      704
+     ],
+     "walk0": [
+      0,
+      1056
+     ],
+     "walk1": [
+      352,
+      1056
+     ],
+     "walk2": [
+      704,
+      1056
+     ],
+     "walk3": [
+      1056,
+      1056
+     ]
+    },
+    "pivot": [
+     172.1,
+     252.2
+    ],
+    "unitsPerCell": 2.3722,
+    "facing": "right",
+    "gameScale": 0.98
+   },
+   "bramble": {
+    "file": "friend-wide-bramble.webp",
+    "cell": 384,
+    "columns": 4,
+    "poses": {
+     "idle0": [
+      0,
+      0
+     ],
+     "idle1": [
+      384,
+      0
+     ],
+     "talk0": [
+      768,
+      0
+     ],
+     "wave0": [
+      1152,
+      0
+     ],
+     "wave1": [
+      0,
+      384
+     ],
+     "wave2": [
+      384,
+      384
+     ],
+     "cheer0": [
+      768,
+      384
+     ],
+     "cheer1": [
+      1152,
+      384
+     ],
+     "eat0": [
+      0,
+      768
+     ],
+     "eat1": [
+      384,
+      768
+     ],
+     "hop0": [
+      768,
+      768
+     ],
+     "hop1": [
+      1152,
+      768
+     ],
+     "walk0": [
+      0,
+      1152
+     ],
+     "walk1": [
+      384,
+      1152
+     ],
+     "walk2": [
+      768,
+      1152
+     ],
+     "walk3": [
+      1152,
+      1152
+     ]
+    },
+    "pivot": [
+     192.4,
+     274.8
+    ],
+    "unitsPerCell": 2.6007,
+    "facing": "right",
+    "gameScale": 0.98
+   }
+  },
+  "lanterns": {
+   "cream-lit": {
+    "file": "lantern-cream-lit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#ffffff",
+    "glow": "#ffb85c"
+   },
+   "cream-unlit": {
+    "file": "lantern-cream-unlit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#ffffff",
+    "glow": "#ffb85c"
+   },
+   "peach-lit": {
+    "file": "lantern-peach-lit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#ffad96",
+    "glow": "#ff7f5c"
+   },
+   "peach-unlit": {
+    "file": "lantern-peach-unlit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#ffad96",
+    "glow": "#ff7f5c"
+   },
+   "mint-lit": {
+    "file": "lantern-mint-lit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#9fe8bc",
+    "glow": "#5fdc95"
+   },
+   "mint-unlit": {
+    "file": "lantern-mint-unlit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#9fe8bc",
+    "glow": "#5fdc95"
+   },
+   "starlight-lit": {
+    "file": "lantern-starlight-lit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#aac0ff",
+    "glow": "#7ea4ff"
+   },
+   "starlight-unlit": {
+    "file": "lantern-starlight-unlit.webp",
+    "cell": 128,
+    "pivot": [
+     64,
+     92.6
+    ],
+    "hook": [
+     64,
+     22.8
+    ],
+    "unitsPerCell": 1.3056,
+    "paper": "#aac0ff",
+    "glow": "#7ea4ff"
+   }
+  },
+  "skyLantern": {
+   "file": "sky-lantern.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    102.3
+   ],
+   "unitsPerCell": 0.818
+  }
+ }
+}

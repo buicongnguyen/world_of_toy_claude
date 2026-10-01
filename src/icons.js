@@ -1,0 +1,25 @@
+export const paths={
+ spark:'m12 2 2.8 7.2L22 12l-7.2 2.8L12 22l-2.8-7.2L2 12l7.2-2.8L12 2Z',
+ heart:'M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z',
+ bag:'M5 7h14l2 14H3L5 7Zm4 0V5a3 3 0 0 1 6 0v2',
+ book:'M12 5v16M12 5C8 2 4 3 2 4v16c3-1 7-1 10 1 3-2 7-2 10-1V4c-2-1-6-2-10 1Z',
+ home:'m3 10 9-7 9 7v11h-7v-7h-4v7H3V10Z',
+ sound:'m11 5-6 4H2v6h3l6 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14',
+ mute:'m11 5-6 4H2v6h3l6 4V5Zm5 4 6 6m0-6-6 6',
+ help:'M9 9a3 3 0 1 1 4 2.8c-1 .4-1 1.2-1 2.2m0 3h.01M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z',
+ arrow:'M4 12h16m-6-6 6 6-6 6',
+ close:'m6 6 12 12M6 18 18 6',
+ check:'m5 12 4 4L19 6',
+ coin:'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0ZM9 9h.01M15 9h.01M9 15h.01M15 15h.01',
+ thread:'M7 4h10M7 20h10M8 4v16m8-16v16M8 7l8 3m-8 0 8 3m-8 0 8 3',
+ flower:'M12 12c-8-2-8-9-3-9 3 0 3 5 3 9Zm0 0c2-8 9-8 9-3 0 3-5 3-9 3Zm0 0c8 2 8 9 3 9-3 0-3-5-3-9Zm0 0c-2 8-9 8-9 3 0-3 5-3 9-3Z',
+ flag:'M3 4v17M3 5h17l-4 5 4 5H3',
+ gift:'M3 9h18v4H3V9Zm2 4v8h14v-8M12 9v12m0-12C3 9 6 1 10 4l2 5Zm0 0c9 0 6-8 2-5l-2 5Z',
+ leaf:'M20 3C7 1 1 11 6 17S23 15 20 3ZM4 21 16 9',
+ sun:'M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1',
+ compass:'m16 8-3 5-5 3 3-5 5-3Zm6 4a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z',
+ camera:'M8 5h8l2 3h4v13H2V8h4l2-3Zm9 9a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z',
+ reset:'M3 10a9 9 0 1 1 2 8M3 4v6h6',
+ moon:'M21 13A9 9 0 0 1 11 3 9 9 0 1 0 21 13Z'
+};
+export function icon(name,cls=''){return `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${paths[name]||paths.spark}"/></svg>`;}

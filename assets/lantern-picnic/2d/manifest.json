@@ -1,0 +1,152 @@
+{
+ "version": 1,
+ "layouts": {
+  "wide": "manifest-wide.json",
+  "tall": "manifest-tall.json",
+  "strip": "manifest-strip.json"
+ },
+ "lanterns": {
+  "cream-lit": {
+   "file": "lantern-cream-lit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#ffffff",
+   "glow": "#ffb85c"
+  },
+  "cream-unlit": {
+   "file": "lantern-cream-unlit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#ffffff",
+   "glow": "#ffb85c"
+  },
+  "peach-lit": {
+   "file": "lantern-peach-lit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#ffad96",
+   "glow": "#ff7f5c"
+  },
+  "peach-unlit": {
+   "file": "lantern-peach-unlit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#ffad96",
+   "glow": "#ff7f5c"
+  },
+  "mint-lit": {
+   "file": "lantern-mint-lit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#9fe8bc",
+   "glow": "#5fdc95"
+  },
+  "mint-unlit": {
+   "file": "lantern-mint-unlit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#9fe8bc",
+   "glow": "#5fdc95"
+  },
+  "starlight-lit": {
+   "file": "lantern-starlight-lit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#aac0ff",
+   "glow": "#7ea4ff"
+  },
+  "starlight-unlit": {
+   "file": "lantern-starlight-unlit.webp",
+   "cell": 128,
+   "pivot": [
+    64,
+    92.6
+   ],
+   "hook": [
+    64,
+    22.8
+   ],
+   "unitsPerCell": 1.3056,
+   "paper": "#aac0ff",
+   "glow": "#7ea4ff"
+  }
+ },
+ "skyLantern": {
+  "file": "sky-lantern.webp",
+  "cell": 128,
+  "pivot": [
+   64,
+   102.3
+  ],
+  "unitsPerCell": 0.818
+ },
+ "files": {
+  "lanterns": {
+   "cream-lit": "lantern-cream-lit.webp",
+   "cream-unlit": "lantern-cream-unlit.webp",
+   "peach-lit": "lantern-peach-lit.webp",
+   "peach-unlit": "lantern-peach-unlit.webp",
+   "mint-lit": "lantern-mint-lit.webp",
+   "mint-unlit": "lantern-mint-unlit.webp",
+   "starlight-lit": "lantern-starlight-lit.webp",
+   "starlight-unlit": "lantern-starlight-unlit.webp"
+  },
+  "skyLantern": "sky-lantern.webp"
+ }
+}

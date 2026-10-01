@@ -1,0 +1,48 @@
+{
+  "name": "little-keepsakes",
+  "version": "1.5.0",
+  "private": true,
+  "type": "module",
+  "description": "The Lantern Picnic: a cinematic 3D fruit-merge picnic on a floating forest island. Five Blender-built toy friends, one evening from afternoon to a lantern festival. Plus The Lantern Trail, a short 2.5D adventure across Fernhollow's floating islets.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "dev:mobile": "node server.mjs --lan",
+    "start": "node server.mjs",
+    "test": "node --test tests/game.test.mjs tests/picnic.test.mjs tests/picnic-wishes.test.mjs tests/picnic-challenge.test.mjs tests/lantern.test.mjs tests/lantern-life.test.mjs tests/audio.test.mjs tests/resources.test.mjs tests/i18n.test.mjs tests/shop.test.mjs tests/quality.test.mjs tests/trail.test.mjs",
+    "test:lantern": "node tests/lantern-browser.mjs && node tests/lantern-stage2d-browser.mjs && node tests/lantern-regressions-browser.mjs && node tests/lantern-ui-browser.mjs",
+    "test:lantern:3d": "node tests/lantern-browser.mjs --quality=low && node tests/lantern-ui-browser.mjs --quality=low && node tests/lantern-languages-browser.mjs --quality=low",
+    "test:browser": "node tests/picnic-browser.mjs && node tests/picnic-combo-browser.mjs && node tests/picnic-coins-browser.mjs",
+    "test:fruit": "node tests/picnic-fruit-browser.mjs",
+    "test:mobile": "node tests/picnic-mobile-browser.mjs",
+    "test:wishes": "node tests/picnic-wishes-browser.mjs",
+    "test:attic": "node tests/browser.mjs",
+    "test:challenge": "node tests/picnic-challenge-browser.mjs",
+    "test:pages": "node tests/pages-browser.mjs",
+    "assets": "npm run assets:blender && npm run assets:icons && npm run assets:keyart",
+    "assets:blender": "node scripts/blender.mjs --background --factory-startup --python art/blender/build_lantern_picnic.py",
+    "assets:icons": "node scripts/blender.mjs --background --python art/blender/render_icons.py",
+    "assets:keyart": "node scripts/blender.mjs --background --python art/blender/render_keyart.py",
+    "assets:ui": "node scripts/blender.mjs --background --factory-startup --python art/blender/render_ui.py",
+    "assets:2d": "node tools/bake/run.mjs",
+    "assets:trail": "node tools/bake-trail/run.mjs",
+    "assets:shop": "node scripts/blender.mjs --background --python art/blender/render_shop.py",
+    "assets:critters": "node scripts/blender.mjs --background --factory-startup --python art/blender/build_critters.py",
+    "assets:gallery": "node scripts/blender.mjs --background --python art/blender/build_asset_gallery.py",
+    "blender": "node scripts/blender.mjs --gui",
+    "mcp:install": "node scripts/blender-mcp-install.mjs",
+    "build": "node scripts/build.mjs",
+    "build:vercel": "node scripts/build-vercel.mjs",
+    "deploy": "node scripts/deploy-play.mjs",
+    "test:lantern:regressions": "node tests/lantern-regressions-browser.mjs",
+    "test:languages": "node tests/lantern-languages-browser.mjs",
+    "test:assets": "node tests/lantern-assets-browser.mjs",
+    "test:trail": "node tests/trail-browser.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "playwright": "1.61.1"
+  }
+}

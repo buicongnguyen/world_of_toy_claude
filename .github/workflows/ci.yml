@@ -1,0 +1,39 @@
+name: Test The Lantern Picnic
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Check the compiled game at the site root
+        env:
+          STATIC_BASE_PATH: /
+        run: npm run test:pages
+      - name: Check the compiled game in a project folder
+        run: npm run test:pages
+      - name: Play the whole story in the browser (mouse and touch)
+        env:
+          LANTERN_QUALITY: low
+        run: |
+          node server.mjs &
+          for i in $(seq 60); do curl -sf http://127.0.0.1:4173/ >/dev/null && break; sleep 1; done
+          npm run test:lantern
+          npm run test:languages

@@ -1,0 +1,21 @@
+node_modules/
+artifacts/
+*.log
+
+.tools/
+*.blend1
+
+dist/
+.vercel/
+.env
+.env.*
+!.env.example
+
+# Blender pipeline caches and local dev helpers
+art/blender/.cache/
+__pycache__/
+*.tmp.mjs
+*.tmp.py
+
+# Deploy working copy of the public play repo (npm run deploy)
+.deploy/

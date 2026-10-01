@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f0e8" />
+  <meta name="description" content="A tiny handmade friend. A room full of memories. A cozy, playable adventure about the things we keep." />
+  <title>Little Keepsakes — A small world of wonder</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect rx='15' width='48' height='48' fill='%23788765'/%3E%3Cpath d='m24 8 4 12 12 4-12 4-4 12-4-12-12-4 12-4Z' fill='%23fff5dc'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Little Keepsakes home"><span class="brand-mark" data-icon="spark"></span><span>little keepsakes<span class="brand-sub">A SMALL WORLD OF WONDER</span></span></a>
+    <div class="chapter-label"><span class="small-dot"></span> THE ATTIC <span class="divider">/</span> CHAPTER 01</div>
+    <div class="top-actions"><div class="currency" title="Buttons earned through discoveries and kindness"><span data-icon="coin"></span><strong id="coins">0</strong><span class="currency-label">buttons</span></div><button id="sound-button" class="icon-button" aria-label="Turn sound on" data-icon="mute"></button><button id="help-button" class="icon-button" aria-label="How to play" data-icon="help"></button></div>
+  </header>
+  <main id="game">
+    <div class="room-heading"><div class="eyebrow">A NEW LITTLE BEGINNING</div><h1>The things<br>we keep.</h1><p>Every small thing<br>has a story.</p><span class="handwritten">Let’s find yours.</span></div>
+    <div id="scene-wrap"><canvas id="scene" tabindex="0" aria-label="The attic. Click or tap the floor to walk. Use arrow keys or WASD to move, E to interact, or the Find a treasure button."></canvas><div id="markers"></div><div id="speech" class="speech" role="status">Oh… hello.<br>Will you explore with me?</div><div id="loading"><span class="loading-star">✧</span><p>Waking up a little world…</p></div></div>
+    <aside class="companion"><div class="pip-portrait" aria-hidden="true"><i class="ear left"></i><i class="ear right"></i><i class="head"><b></b><b></b><em></em></i><i class="scarf"></i></div><div class="companion-copy"><div class="companion-title">Pip <span id="level-number">LV. 1</span></div><div id="level-name">A little spark</div><div class="progress-track"><div id="xp-fill"></div></div><span id="xp-label" class="sr-only"></span></div><span data-icon="heart" class="companion-heart"></span></aside>
+    <aside class="quest-card"><div class="quest-kicker"><span data-icon="leaf"></span><span>A LITTLE PURPOSE</span><span id="quest-count">01 / 03</span></div><h2 id="quest-title">A light left on</h2><p id="quest-description">A sleepy lamp. A few loose threads. Perhaps we can make it glow again.</p><div class="quest-resource"><span data-icon="thread"></span><span id="thread-count">0 / 3 pieces of thread</span><span id="quest-checks" class="quest-checks">○ ○ ○</span></div><button id="guide-button" class="text-button">Find a treasure <span data-icon="arrow"></span></button></aside>
+    <div class="scene-tools"><button class="icon-button" id="zoom-in" aria-label="Zoom in">+</button><button class="icon-button" id="zoom-out" aria-label="Zoom out">−</button><span></span><button class="icon-button" id="photo-button" aria-label="Save a photo of the room" data-icon="camera"></button></div>
+    <div class="room-caption"><span data-icon="sun"></span> A quiet afternoon <span class="caption-dot">·</span> <span id="restored-count">0 of 3 memories found</span></div>
+    <div class="interaction-hint" id="movement-hint"><span class="tap-ring"></span> Tap the floor to wander. Little wonders are everywhere.</div>
+    <section id="interaction" class="interaction-card" hidden aria-label="Selected keepsake"><button id="close-interaction" class="close-small" aria-label="Close keepsake" data-icon="close"></button><span class="eyebrow">A FORGOTTEN KEEPSAKE</span><h3 id="interaction-title"></h3><p id="interaction-description"></p><button id="restore-button" class="primary-button"></button></section>
+  </main>
+  <footer class="bottom-bar"><span class="footer-note">Small hands. <i>Big heart.</i></span><nav aria-label="Play and collections"><button class="nav-button active" id="explore-button"><span data-icon="compass"></span><span>Explore</span><span class="nav-dot"></span></button><button class="nav-button" id="pocket-button"><span data-icon="bag"></span><span>Pocket</span><span class="count-badge" id="pocket-count">0</span></button><button class="nav-button" id="memories-button"><span data-icon="book"></span><span>Memory book</span></button><button class="nav-button" id="decorate-button"><span data-icon="flower"></span><span>Make it yours</span></button></nav><span class="save-status" id="save-status"><span class="small-dot"></span> Saved on this device</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="modal" aria-labelledby="modal-title"><button id="close-modal" class="modal-close icon-button" aria-label="Close dialog" data-icon="close"></button><div id="modal-content"></div></dialog>
+  <div class="sr-only" id="announcer" aria-live="polite"></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+import { chromium } from 'playwright';
+import { mkdir } from 'node:fs/promises';
+await mkdir('artifacts',{recursive:true});
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1});
+page.on('pageerror',e=>console.error('PAGE ERROR',e.message));
+await page.goto('http://localhost:4173/?debug');
+await page.waitForFunction(()=>window.__keepsakes,{timeout:30000});
+await page.waitForFunction(()=>getComputedStyle(document.getElementById('loading')).opacity==='0');
+await page.screenshot({path:'artifacts/desktop-first-look.png'});
+console.log(await page.evaluate(()=>({state:window.__keepsakes.getState(),stats:window.__keepsakes.getRenderStats(),canvas:document.querySelector('canvas').getBoundingClientRect().toJSON()})));
+await page.setViewportSize({width:390,height:844});
+await page.waitForFunction(()=>document.querySelector('canvas').width===390);
+await page.screenshot({path:'artifacts/mobile-first-look.png'});
+await browser.close();

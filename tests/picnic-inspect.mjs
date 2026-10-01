@@ -1,0 +1,16 @@
+import {chromium} from 'playwright';
+import {mkdir} from 'node:fs/promises';
+await mkdir('artifacts',{recursive:true});
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1});
+page.on('pageerror',e=>console.error('PAGE ERROR',e));
+page.on('console',m=>{if(m.type()==='error')console.error('CONSOLE',m.text());});
+await page.goto('http://localhost:4173/?debug');
+await page.waitForFunction(()=>window.__picnic);
+await page.waitForFunction(()=>getComputedStyle(document.getElementById('loading')).opacity==='0');
+await page.screenshot({path:'artifacts/picnic-desktop.png'});
+console.log(await page.evaluate(()=>({frame:window.__picnic.getFrame(),stats:window.__picnic.getRenderStats(),state:window.__picnic.getState()})));
+await page.setViewportSize({width:390,height:844});
+await page.waitForFunction(()=>window.__picnic.getFrame().width<10);
+await page.screenshot({path:'artifacts/picnic-mobile.png'});
+await browser.close();

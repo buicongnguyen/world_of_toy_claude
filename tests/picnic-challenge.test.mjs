@@ -1,0 +1,38 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {PLATE,newPicnic,FRUITS,itemTier} from '../src/picnic-game.js';
+import {GRID,cellPoint,cellAt,neighbors,newChallenge,dropChallenge,challengePlan,loadChallenge,upcomingFruit,emptyCells} from '../src/picnic-challenge.js';
+
+function fixture(pieces){const s=newChallenge();s.fruits=pieces.map(([level,cell],i)=>({id:i+1,level,cell,...cellPoint(cell)}));s.nextId=s.fruits.length+1;return s;}
+function invariant(s){assert.ok(s.fruits.length<=25);assert.equal(new Set(s.fruits.map(f=>f.cell)).size,s.fruits.length);assert.equal(new Set(s.fruits.map(f=>f.id)).size,s.fruits.length);for(const f of s.fruits){assert.deepEqual({x:f.x,y:f.y},cellPoint(f.cell));assert.ok(f.level>=0&&f.level<FRUITS.length&&f.level!==8);}}
+
+test('fresh challenge has a stable 5 by 5 grid and a two-watermelon goal',()=>{const s=newChallenge();assert.equal(s.fruits.length,12);assert.equal(s.challenge.harvested,0);assert.equal(s.challenge.untilDrop,3);assert.deepEqual(upcomingFruit(s),[9,9,10]);invariant(s);for(let i=0;i<25;i++)assert.equal(cellAt(cellPoint(i)),i);assert.equal(cellAt({x:NaN,y:0}),null);assert.deepEqual(neighbors(4),[3,9]);assert.deepEqual(neighbors(0),[1,5]);});
+test('invalid, cancelled-equivalent, unchanged, and mismatched drops spend no turns',()=>{const s=fixture([[0,0],[1,1]]),before=structuredClone(s);for(const point of [cellPoint(0),cellPoint(1),{x:NaN,y:0},{x:0,y:0}])assert.equal(dropChallenge(s,1,point).ok,false);assert.deepEqual(s,before);assert.equal(dropChallenge(s,1,cellPoint(2)).type,'move');assert.equal(s.challenge.turns,1);assert.equal(s.challenge.untilDrop,2);});
+test('center combos use four touching sides, excluding diagonals and remote chains',()=>{const s=fixture([[0,24],[0,11],[0,13],[0,7],[0,6],[0,10]]);const plan=challengePlan(s,1,cellPoint(12));assert.equal(plan.count,4);assert.equal(plan.reward,60);assert.deepEqual(plan.removed,[1,2,3,4]);const r=dropChallenge(s,1,cellPoint(12));assert.equal(r.type,'merge');assert.equal(r.fruit.cell,12);assert.equal(r.fruit.level,1);assert.equal(s.fruits.length,3);invariant(s);});
+test('drop onto a matching occupied square merges and includes its matching neighbors',()=>{const s=fixture([[1,0],[1,12],[1,13],[2,7]]);const r=dropChallenge(s,1,cellPoint(12));assert.equal(r.count,3);assert.equal(r.reward,60);assert.equal(s.challenge.turns,1);invariant(s);});
+test('third valid turn releases the advertised three fruit, with reproducible positions',()=>{const s=fixture([[0,0]]);dropChallenge(s,1,cellPoint(1));dropChallenge(s,1,cellPoint(2));const before=structuredClone(s),r=dropChallenge(s,1,cellPoint(3));assert.equal(r.spawned.length,3);assert.deepEqual(r.spawned.map(f=>f.level),[9,9,10]);assert.equal(s.challenge.turns,3);assert.equal(s.challenge.untilDrop,3);assert.equal(s.supplyIndex,3);invariant(s);const replay=dropChallenge(before,1,cellPoint(3));assert.deepEqual(replay,r);assert.deepEqual(before,s);});
+test('crowded delivery waits without overwriting fruit or building a delivery backlog',()=>{const s=fixture(Array.from({length:25},(_,cell)=>[cell%8,cell]));s.challenge.untilDrop=1;const first=dropChallenge(s,1,PLATE);assert.equal(first.spawned.length,1);assert.equal(s.challenge.pending.length,2);assert.equal(s.fruits.length,25);for(let i=0;i<2;i++){const r=dropChallenge(s,s.fruits[0].id,PLATE);assert.equal(r.spawned.length,1);assert.equal(s.challenge.untilDrop,3);invariant(s);}assert.equal(s.challenge.pending.length,0);assert.equal(s.supplyIndex,3);dropChallenge(s,s.fruits[0].id,PLATE);assert.equal(s.challenge.untilDrop,2);});
+test('clearing the mat refills it immediately so the round cannot stall',()=>{for(const pieces of [[[0,0]],[[11,0],[11,4]]]){const s=fixture(pieces),r=dropChallenge(s,1,pieces.length===1?PLATE:cellPoint(4));assert.equal(r.emptyRefill,true);assert.equal(r.spawned.length,3);assert.equal(s.challenge.untilDrop,3);assert.equal(s.challenge.status,'playing');assert.equal(s.fruits.length,3);invariant(s);}});
+test('watermelons are banked, second one wins before another delivery, and win locks moves',()=>{const s=fixture([[11,0],[11,4],[11,20],[11,24]]);let r=dropChallenge(s,1,cellPoint(4));assert.equal(r.harvested,true);assert.equal(s.challenge.harvested,1);assert.equal(s.fruits.length,2);assert.equal(s.challenge.status,'playing');s.challenge.untilDrop=1;r=dropChallenge(s,3,cellPoint(24));assert.equal(r.won,true);assert.equal(s.challenge.harvested,2);assert.equal(s.challenge.status,'won');assert.equal(r.spawned.length,0);assert.equal(s.supplyIndex,0);assert.equal(s.score,240);const won=structuredClone(s);assert.equal(dropChallenge(s,4,cellPoint(0)).ok,false);assert.deepEqual(s,won);assert.deepEqual(loadChallenge(JSON.stringify(s)),s);});
+test('round saves preserve all 25 cells, countdown, queued fruit, and deterministic supply',()=>{const s=fixture(Array.from({length:25},(_,cell)=>[cell%8,cell]));s.challenge.pending=[3,4];s.challenge.turns=26;s.challenge.untilDrop=2;s.challenge.harvested=1;s.discovered=[0,1,2,3,4,5,6,7,8];const loaded=loadChallenge(JSON.stringify(s));assert.equal(loaded.fruits.length,25);assert.deepEqual(loaded,s);assert.deepEqual(loadChallenge(JSON.stringify(newPicnic())),newChallenge());assert.deepEqual(loadChallenge('broken'),newChallenge());});
+test('malformed saves cannot overlap cells, inject bubble toys, or forge a win status',()=>{const s=fixture([[0,0],[1,1]]);s.fruits.push({...s.fruits[0],id:50},{...s.fruits[1],cell:2},{id:88,level:8,cell:3});s.challenge.status='won';s.challenge.pending=[-1,8,3,NaN,4,5,6];s.challenge.untilDrop=0;s.picnicItems=[{id:99,kind:'picnic',level:0,x:.3,y:.2}];const loaded=loadChallenge(JSON.stringify(s));assert.equal(loaded.fruits.length,2);assert.equal(loaded.picnicItems.length,0);assert.equal(loaded.challenge.status,'playing');assert.equal(loaded.challenge.untilDrop,3);assert.deepEqual(loaded.challenge.pending,[3,4,5]);invariant(loaded);});
+
+// A simple planning player completes a real fresh round using only legal actions.
+// Prefer pair merges to preserve fruit, then move/share to advance the basket.
+export function chooseMove(s){
+ const candidates=[];for(const fruit of s.fruits)for(let cell=0;cell<25;cell++){const point=cellPoint(cell),plan=challengePlan(s,fruit.id,point);if(plan)candidates.push({id:fruit.id,point,plan});}
+ candidates.sort((a,b)=>a.plan.count-b.plan.count||itemTier(b.plan)-itemTier(a.plan));
+ if(candidates.length)return candidates[0];
+ const empty=emptyCells(s);if(empty.length)return{id:s.fruits[0].id,point:cellPoint(empty[0])};
+ return{id:[...s.fruits].sort((a,b)=>itemTier(a)-itemTier(b))[0].id,point:PLATE};
+}
+test('a fresh challenge is winnable with deliveries through the same public rules',()=>{const s=newChallenge();let count=0;while(s.challenge.status==='playing'&&count++<250){const action=chooseMove(s);assert.ok(action);const r=dropChallenge(s,action.id,action.point);assert.equal(r.ok,true);invariant(s);}assert.equal(s.challenge.status,'won');assert.equal(s.challenge.harvested,2);console.log(`Fresh challenge completed in ${s.challenge.turns} turns, ${s.merges} merges, ${s.score} joys.`);});
+
+
+test('new varieties survive challenge saves and all new transitions work in center combos',()=>{
+ for(const [from,to]of [[2,9],[9,3],[5,10],[10,6],[7,11],[11,8]])for(const count of [2,3,4]){
+  const s=fixture([[from,24],...[11,13,7].slice(0,count-1).map(cell=>[from,cell])]);
+  const loaded=loadChallenge(JSON.stringify(s));assert.deepEqual(loaded.fruits,s.fruits);
+  const result=dropChallenge(loaded,1,cellPoint(12));assert.equal(result.count,count);assert.equal(result.fruit.level,to);assert.equal(result.harvested,to===8);invariant(loaded);
+ }
+});

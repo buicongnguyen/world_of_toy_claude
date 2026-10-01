@@ -1,0 +1,25 @@
+import {FRUITS} from './picnic-game.js';
+// Original candy-colored miniatures matching the toys on the mat.
+const fantasyColors={'#59a65b':'#20ccab','#638744':'#229f86','#599748':'#21b396','#77bb56':'#40dfb1','#e83758':'#ed246c','#f24962':'#ff518a','#fa5a73':'#ff4a99','#66a657':'#30d6ac','#9f65d3':'#9351ef','#c99ceb':'#b9a7ff','#ff9f35':'#ffa022','#f9d844':'#ffe332','#9bcc4f':'#30d6ad','#c9e782':'#b5f897','#ffa08e':'#ee92cb','#ec837f':'#c968b2','#59a36a':'#21c6bb','#f4be48':'#ffc534','#69bf83':'#55e7d0','#32966e':'#218daa'};
+const face=(x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})"><g fill="#493052"><ellipse cx="-6" cy="0" rx="1.8" ry="2.4"/><ellipse cx="6" cy="0" rx="1.8" ry="2.4"/></g><g fill="#fff"><circle cx="-6.6" cy="-.9" r=".7"/><circle cx="5.4" cy="-.9" r=".7"/></g><g fill="#ff8db0"><ellipse cx="-10" cy="3" rx="2.8" ry="1.5"/><ellipse cx="10" cy="3" rx="2.8" ry="1.5"/></g><path d="M-3 4q3 3 6 0" fill="none" stroke="#703553" stroke-width="1.4" stroke-linecap="round"/></g>`;
+export function fruitIcon(level,size=42){
+ const leaves='<path d="M30 16C27 5 43 4 46 8c-3 8-8 9-16 8" fill="#59a65b"/><path d="m31 18 3-12" fill="none" stroke="#638744" stroke-width="3" stroke-linecap="round"/>';
+ const art=[
+  '<path d="M19 34 32 10l12 26" fill="none" stroke="#599748" stroke-width="3" stroke-linecap="round"/><path d="M31 12Q40 1 47 9Q40 17 31 12" fill="#77bb56"/><circle cx="20" cy="40" r="14" fill="#e83758"/><circle cx="44" cy="42" r="14" fill="#f24962"/><path d="M13 35q2-4 5-4m18 5q2-4 5-4" fill="none" stroke="#ffafac" stroke-width="3" stroke-linecap="round"/>',
+  '<path d="M11 27Q11 12 32 14Q55 14 53 29Q50 45 32 57Q16 45 11 27" fill="#fa5a73"/><path d="m13 18 13 1 6-11 6 11 13-1-10 9-9-7-8 7Z" fill="#66a657"/><g fill="#ffe395"><ellipse cx="20" cy="31" rx="1.3" ry="2.3"/><ellipse cx="32" cy="32" rx="1.3" ry="2.3"/><ellipse cx="44" cy="31" rx="1.3" ry="2.3"/><ellipse cx="26" cy="42" rx="1.3" ry="2.3"/><ellipse cx="37" cy="43" rx="1.3" ry="2.3"/></g>',
+  '<path d="m30 18 4-12" stroke="#638b45" stroke-width="3"/>'+leaves+'<g fill="#9f65d3"><circle cx="23" cy="25" r="11"/><circle cx="42" cy="25" r="11"/><circle cx="15" cy="38" r="10"/><circle cx="33" cy="39" r="11"/><circle cx="48" cy="39" r="10"/><circle cx="25" cy="51" r="10"/><circle cx="40" cy="52" r="9"/></g><g fill="#c99ceb"><circle cx="19" cy="21" r="3"/><circle cx="29" cy="36" r="3"/><circle cx="43" cy="35" r="2.5"/></g>',
+  '<circle cx="32" cy="37" r="23" fill="#ff9f35"/><path d="M15 32q2-8 10-10" fill="none" stroke="#ffd178" stroke-width="4" stroke-linecap="round"/>'+leaves,
+  '<path d="M8 26C16 7 40 11 50 26l7 4-3 8C43 57 20 56 10 41l-6-5Z" fill="#f9d844"/><path d="M17 27q8-9 18-7" fill="none" stroke="#fff39e" stroke-width="4" stroke-linecap="round"/>',
+  '<path d="M25 17Q32 9 39 20l2 10C66 55 36 65 18 55Q5 47 19 31Z" fill="#9bcc4f"/><path d="M21 37q-6 8-1 12" stroke="#c9e782" stroke-width="4" fill="none" stroke-linecap="round"/>'+leaves,
+  '<path d="M33 20C5 3 0 37 17 53q15 14 31-1C66 30 52 10 33 20" fill="#ffa08e"/><path d="M33 21q-9 16-1 33" fill="none" stroke="#ec837f" stroke-width="2.5"/>'+leaves,
+  '<path d="m22 22-8-15 13 9L32 2l5 14 12-9-7 16" fill="#59a36a"/><rect x="14" y="20" width="36" height="41" rx="16" fill="#f4be48"/><path d="m17 29 25 25m-27-13 16 17m-6-35 24 25m-32 0 25-25m-27 13 13-13m-2 35 23-23" stroke="#d99d37" stroke-width="1.6" fill="none"/>',
+  '<ellipse cx="32" cy="36" rx="27" ry="24" fill="#69bf83"/><path d="M19 16Q7 36 19 57m11-44q-9 23 0 47m11-44q10 20 0 41m9-33q6 12 0 26" stroke="#32966e" stroke-width="5" fill="none"/><path d="M31 12q-6-11 3-8" stroke="#52904a" stroke-width="3" fill="none"/>',
+  '<path d="M32 19C17 5 3 22 9 40c4 15 13 21 23 16 10 5 20-2 24-17 5-19-10-31-24-20" fill="#ff4264"/><path d="M16 28q1-6 6-7" fill="none" stroke="#ffacaa" stroke-width="4" stroke-linecap="round"/><path d="m32 20-1-12" stroke="#895c51" stroke-width="3" stroke-linecap="round"/><path d="M33 14Q39 2 49 8q-3 11-16 6" fill="#25d7b2"/>',
+  '<ellipse cx="32" cy="37" rx="20" ry="25" fill="#8066ed"/><path d="M37 15q12 17 1 43" stroke="#b4a4ff" stroke-width="2" fill="none"/><path d="M20 29q-2-7 4-10" stroke="#c8b7ff" stroke-width="4" stroke-linecap="round" fill="none"/>'+leaves,
+  '<ellipse cx="32" cy="36" rx="21" ry="25" fill="#fb65ba"/><g fill="#e33399"><path d="M15 38Q3 29 7 16l14 14ZM43 30l14-14q5 15-8 22ZM19 53Q5 48 7 34l18 11ZM39 45l18-11q2 14-12 19ZM25 21 32 1l8 21ZM21 38l-3-18 14 10ZM33 39l14-19-2 20ZM28 57l-5-15 12 6Z"/></g><g fill="#acf17b"><path d="m7 16 9 9-9 1Zm50 0 1 10-10-1ZM7 34l11 9-10 1ZM57 34l-1 10-10-1ZM32 1l4 12-8 0ZM18 20l8 10-7 1ZM47 20l-1 12-7-1ZM23 42l8 6-6 5Z"/></g>',
+ ][level]||'';
+ const colored=art.replace(/#[0-9a-f]{6}/g,color=>fantasyColors[color]||color);
+ const expression=FRUITS[level]?.hasFace===false?'':level===0?face(20,42,.67)+face(44,44,.67):face(32,level===5?45:39);
+ const star=[2,5,6,8,9,10,11].includes(level)?'<path d="m17 25 1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5Z" fill="#fff5ba"/>':'';
+ return `<svg class="fruit-icon" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true">${colored}${expression}${star}</svg>`;
+}

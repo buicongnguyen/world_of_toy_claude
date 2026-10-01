@@ -1,0 +1,105 @@
+{
+ "critters": {
+  "butterfly": {
+   "budget": 450,
+   "class": "small",
+   "draws": 3,
+   "height": 0.0191,
+   "length": 0.145,
+   "parts": {
+    "wing_l": {
+     "axis": "z",
+     "hinge": [
+      -0.01,
+      -0.0,
+      -0.0029
+     ],
+     "tris": 48
+    },
+    "wing_r": {
+     "axis": "z",
+     "hinge": [
+      0.01,
+      -0.0,
+      -0.0029
+     ],
+     "tris": 48
+    }
+   },
+   "top": 0.0095,
+   "tris": 132,
+   "wag": 0.9,
+   "width": 0.24
+  },
+  "goldfish": {
+   "budget": 450,
+   "class": "small",
+   "draws": 2,
+   "height": 0.26,
+   "length": 0.523,
+   "parts": {
+    "tail": {
+     "axis": "y",
+     "hinge": [
+      0.0,
+      -0.0055,
+      -0.178
+     ],
+     "tris": 16
+    }
+   },
+   "top": 0.1545,
+   "tris": 282,
+   "wag": 0.5,
+   "width": 0.1578
+  },
+  "koi_flame": {
+   "budget": 450,
+   "class": "small",
+   "draws": 2,
+   "height": 0.2214,
+   "length": 0.6811,
+   "parts": {
+    "tail": {
+     "axis": "y",
+     "hinge": [
+      0.0,
+      0.0005,
+      -0.2864
+     ],
+     "tris": 14
+    }
+   },
+   "top": 0.1269,
+   "tris": 364,
+   "wag": 0.6,
+   "width": 0.2551
+  },
+  "koi_gold": {
+   "budget": 450,
+   "class": "small",
+   "draws": 2,
+   "height": 0.2214,
+   "length": 0.6811,
+   "parts": {
+    "tail": {
+     "axis": "y",
+     "hinge": [
+      0.0,
+      0.0005,
+      -0.2864
+     ],
+     "tris": 14
+    }
+   },
+   "top": 0.1269,
+   "tris": 364,
+   "wag": 0.6,
+   "width": 0.2551
+  }
+ },
+ "glb": "critters.glb",
+ "glb_bytes": 42628,
+ "problems": [],
+ "vertex_colours": true
+}
