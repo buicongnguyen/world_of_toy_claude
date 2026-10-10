@@ -81,3 +81,7 @@ await writeFile(path.join(out,'build-info.json'),JSON.stringify({
 let bytes=0,files=0;
 async function measure(dir){for(const entry of await readdir(dir,{withFileTypes:true})){const file=path.join(dir,entry.name);if(entry.isDirectory())await measure(file);else{files++;bytes+=(await stat(file)).size;}}}
 await measure(out);console.log(`Built ${files} static files (${(bytes/1024/1024).toFixed(2)} MiB) in dist/; works at / or any project subfolder.`);
+
+// Home-screen metadata accompanies the existing bundled game.
+const { copyFile: mobileHomeScreenCopy } = await import('node:fs/promises');
+await mobileHomeScreenCopy(new URL('../manifest.webmanifest', import.meta.url), new URL('../dist/manifest.webmanifest', import.meta.url));

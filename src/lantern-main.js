@@ -1,3 +1,4 @@
+import './mobile-game-init.mjs';
 import {t, setLanguage, getLanguage, number, bindStaticText} from './lantern-i18n.js';
 import {FRUITS, FRUIT_ORDER, BASKET, PLATE, itemTier, nextItemLevel, mergeGroup} from './picnic-game.js';
 import {LANTERN_SAVE, CHAPTERS, SKEWER, LAST, chapter, newLantern, loadLantern, readableSave, settleFruits, dropLantern, tapBasket, nextChapter, nextSupply, needed,

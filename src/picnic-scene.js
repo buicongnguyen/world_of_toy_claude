@@ -24,6 +24,8 @@ export class PicnicScene {
   // Source labels live outside the canvas. WebKit may retain them as the
   // release target despite capture, so track the active pointer at window level.
   canvas.addEventListener('pointerdown',e=>this.down(e));window.addEventListener('pointermove',e=>this.move(e),{passive:false});window.addEventListener('pointerup',e=>this.up(e));window.addEventListener('pointercancel',e=>{if(this.drag?.pointerId===e.pointerId)this.cancel();});canvas.addEventListener('lostpointercapture',e=>{if(this.drag?.pointerId===e.pointerId)this.cancel();});canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('keydown',e=>this.key(e));window.addEventListener('blur',()=>this.cancel());
+window.addEventListener('pagehide', ()=>this.cancel());
+window.addEventListener('mobile-game-interruption', ()=>this.cancel());
   this.last=performance.now();this.raf=requestAnimationFrame(t=>this.animate(t));
  }
  world(p,y=.1){return new THREE.Vector3((p.x-.5)*this.frame.width,y,(p.y-.5)*this.frame.depth);}

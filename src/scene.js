@@ -28,6 +28,8 @@ export class Room {
     canvas.addEventListener('pointerdown',e=>this.pointerDown(e));
     canvas.addEventListener('keydown',e=>this.keyDown(e));
     window.addEventListener('keyup',e=>this.keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>this.keys.clear());
+window.addEventListener('pagehide', ()=>this.keys.clear());
+window.addEventListener('mobile-game-interruption', ()=>this.keys.clear());
     this.last=performance.now();this.frame=requestAnimationFrame(t=>this.animate(t));onReady?.();
   }
   mat(color,roughness=.9){const key=`${color}:${roughness}`;if(!this.materials.has(key))this.materials.set(key,new THREE.MeshStandardMaterial({color,roughness}));return this.materials.get(key);}

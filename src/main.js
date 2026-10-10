@@ -1,3 +1,4 @@
+import './mobile-game-init.mjs';
 import { Room } from './scene.js';
 import { Soundscape } from './audio.js';
 import { SAVE_KEY,TREASURES,RESTORATIONS,DECORATIONS,LEVELS,newGame,loadGame,levelFor,collect,restore,buyDecoration,claimBonus } from './game.js';

@@ -1,0 +1,10 @@
+{
+  "name": "The Lantern Picnic",
+  "short_name": "The Lantern Picnic",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#172528",
+  "theme_color": "#172528"
+}

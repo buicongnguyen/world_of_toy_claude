@@ -133,6 +133,8 @@ export class LanternWorld {
     canvas.addEventListener('keydown', e => this.key(e));
     canvas.addEventListener('pointermove', e => this.hover(e));
     window.addEventListener('blur', () => this.cancel());
+window.addEventListener('pagehide', () => this.cancel());
+window.addEventListener('mobile-game-interruption', () => this.cancel());
     this.last = performance.now();
     this.raf = requestAnimationFrame(t => this.animate(t));
   }

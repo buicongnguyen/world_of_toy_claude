@@ -1,3 +1,4 @@
+import './mobile-game-init.mjs';
 import {PicnicScene} from './picnic-scene.js';
 import {Soundscape} from './audio.js';
 import {icon} from './icons.js';
